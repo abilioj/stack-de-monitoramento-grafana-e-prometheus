@@ -11,3 +11,12 @@ scrape_configs:
     metrics_path: /metrics # Endpoint padrão para a raspagem das métricas
     static_configs:
       - targets: ['localhost:9090']
+        labels:
+          alias: prometheus-local
+
+  - job_name: node_exporter
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['IP-SERVIDOR:9100']
+        labels:
+          alias: webserver
